@@ -189,13 +189,19 @@
     transform: translateY(-8px);
     box-shadow: 0 8px 22px rgba(255,87,34,0.25);
   }
-  .team-member img {
+  .team-photo {
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 4px solid #ff5722;
+    background: #ff5722;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 2em;
+    margin: 0 auto 15px;
+    user-select: none;
   }
   .team-member h4 {
     margin: 0 0 6px 0;
@@ -317,112 +323,111 @@
 </header>
 
 <div class="banner">
-  <h2>Votre garage de confiance à Paimpol</h2>
+  <div>
+    <h2>Votre garage de confiance à Paimpol</h2>
+    <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Nous contacter</button>
+  </div>
 </div>
 
 <main class="container">
   <section id="accueil" class="page active">
     <h3>Bienvenue chez Auto Minute</h3>
-    <p>Votre garage de proximité, expert en réparation et entretien automobile à Paimpol. Nous mettons notre savoir-faire et notre rapidité à votre service pour vous garantir satisfaction et sécurité.</p>
+    <p>Notre garage à Paimpol vous offre des services de qualité pour l'entretien et la réparation de votre véhicule. Professionnalisme, rapidité et confiance sont nos priorités.</p>
     <div class="features">
       <div class="feature">
-        <div class="feature-icon">🛠️</div>
-        <h4>Réparations rapides</h4>
-        <p>Interventions efficaces sur toutes marques et modèles.</p>
+        <div class="feature-icon">🔧</div>
+        <h4>Réparations</h4>
+        <p>Des mécaniques expertes pour tous types de véhicules.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">⚙️</div>
-        <h4>Entretien complet</h4>
-        <p>Contrôles et maintenances pour prolonger la vie de votre véhicule.</p>
+        <div class="feature-icon">⏱️</div>
+        <h4>Service rapide</h4>
+        <p>Interventions efficaces pour minimiser votre attente.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">💡</div>
-        <h4>Conseils personnalisés</h4>
-        <p>Notre équipe vous accompagne dans vos choix et réparations.</p>
+        <div class="feature-icon">🤝</div>
+        <h4>Confiance</h4>
+        <p>Transparence et conseils personnalisés.</p>
       </div>
     </div>
   </section>
 
   <section id="services" class="page">
-    <h3>Nos Services</h3>
+    <h3>Nos services</h3>
     <ul class="services-list">
-      <li>Révision complète</li>
+      <li>Entretien et révision</li>
       <li>Diagnostic électronique</li>
-      <li>Freinage et suspension</li>
+      <li>Freinage et suspensions</li>
       <li>Réparation moteur</li>
       <li>Vidange et filtres</li>
       <li>Climatisation</li>
-      <li>Préparation contrôle technique</li>
-      <li>Service dépannage</li>
     </ul>
   </section>
 
   <section id="equipe" class="page">
-    <h3>Notre Équipe</h3>
+    <h3>Notre équipe</h3>
     <div class="team-container">
       <div class="team-member">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Dupont" />
-        <h4>Jean Dupont</h4>
-        <span>Mécanicien principal</span>
-        <p>Jean possède 15 ans d'expérience en mécanique automobile et garantit un travail soigné.</p>
+        <div class="team-photo">YL</div>
+        <h4>Yohann Lachivert</h4>
+        <span>Mécanicien et gérant</span>
+        <p>Expert passionné et dirigeant de notre garage, toujours à votre service.</p>
       </div>
       <div class="team-member">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Durand" />
-        <h4>Marie Durand</h4>
-        <span>Responsable accueil</span>
-        <p>Marie vous accueille avec sourire et organise votre prise en charge rapidement.</p>
+        <div class="team-photo">VB</div>
+        <h4>Virginie Buhour</h4>
+        <span>Secrétaire de direction</span>
+        <p>Assure l’organisation et le suivi administratif avec rigueur.</p>
       </div>
       <div class="team-member">
-        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Paul Martin" />
-        <h4>Paul Martin</h4>
-        <span>Technicien diagnostic</span>
-        <p>Paul est expert en diagnostic électronique et vous conseille sur les meilleures réparations.</p>
+        <div class="team-photo">GG</div>
+        <h4>Gildas Le Goff</h4>
+        <span>Mécanicien</span>
+        <p>Technicien qualifié garantissant des réparations fiables et rapides.</p>
       </div>
     </div>
   </section>
 
   <section id="contact" class="page">
     <h3>Contactez-nous</h3>
-    <form>
+    <form onsubmit="event.preventDefault(); alert('Merci pour votre message, nous vous répondrons rapidement.')">
       <label for="nom">Nom</label>
       <input type="text" id="nom" name="nom" required />
-
       <label for="email">Email</label>
       <input type="email" id="email" name="email" required />
-
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
-
       <button type="submit">Envoyer</button>
     </form>
   </section>
 </main>
 
 <footer>
-  <p>© 2025 Auto Minute - Garage à Paimpol</p>
+  &copy; 2025 Auto Minute - Garage à Paimpol | Téléphone : 02 96 55 17 84 | Email : auto.minute.paimpol@orange.fr
 </footer>
 
 <script>
-  const links = document.querySelectorAll('nav .nav-link');
+  // Navigation entre les sections
+  const navLinks = document.querySelectorAll('nav a');
   const pages = document.querySelectorAll('main .page');
 
-  links.forEach(link => {
+  navLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
+      const targetId = link.getAttribute('data-target');
 
-      // Retirer la classe active de tous les liens
-      links.forEach(l => l.classList.remove('active'));
-      // Ajouter la classe active au lien cliqué
+      // Activer le lien cliqué, désactiver les autres
+      navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
 
-      // Cacher toutes les pages
-      pages.forEach(page => page.classList.remove('active'));
-      // Afficher la page ciblée
-      const targetId = link.getAttribute('data-target');
-      const targetPage = document.getElementById(targetId);
-      if (targetPage) {
-        targetPage.classList.add('active');
-      }
+      // Afficher la page cible, cacher les autres
+      pages.forEach(page => {
+        if (page.id === targetId) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
     });
   });
 </script>
