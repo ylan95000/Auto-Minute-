@@ -104,7 +104,7 @@
     padding-left: 12px;
   }
 
-  /* Accueil amélioré */
+  /* Accueil */
   #accueil p {
     font-size: 1.25em;
     color: #444;
@@ -316,4 +316,97 @@
   </div>
 </header>
 
-<div class="banner
+<div class="banner">
+  <h2>Votre garage de confiance à Paimpol</h2>
+  <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Contactez-nous</button>
+</div>
+
+<main class="container">
+  <section id="accueil" class="page active">
+    <h3>Bienvenue chez Auto Minute</h3>
+    <p>Nous assurons l'entretien et la réparation rapide de votre véhicule avec professionnalisme.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🔧</div>
+        <h4>Réparations rapides</h4>
+        <p>Interventions efficaces pour que vous puissiez reprendre la route sans délai.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛠️</div>
+        <h4>Entretien complet</h4>
+        <p>Un suivi complet de votre voiture pour garantir sa longévité.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🚗</div>
+        <h4>Service client</h4>
+        <p>Une équipe à votre écoute pour répondre à toutes vos questions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="page">
+    <h3>Nos Services</h3>
+    <ul class="services-list">
+      <li>Vidange & filtres</li>
+      <li>Diagnostic électronique</li>
+      <li>Freins & suspension</li>
+      <li>Révision générale</li>
+      <li>Climatisation</li>
+      <li>Contrôle technique</li>
+    </ul>
+  </section>
+
+  <section id="equipe" class="page">
+    <h3>Notre Équipe</h3>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Dupont" />
+        <h4>Jean Dupont</h4>
+        <span>Mécanicien principal</span>
+        <p>Expert en diagnostics rapides et réparations précises.</p>
+      </div>
+      <div class="team-member">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Leroy" />
+        <h4>Marie Leroy</h4>
+        <span>Assistante service client</span>
+        <p>Votre interlocutrice pour un accueil personnalisé.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="page">
+    <h3>Contactez-nous</h3>
+    <form onsubmit="alert('Merci pour votre message. Nous vous répondrons rapidement.'); return false;">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" required />
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Auto Minute - Garage à Paimpol | <a href="mailto:auto.minute.paimpol@orange.fr">auto.minute.paimpol@orange.fr</a> | 02 96 55 17 84
+</footer>
+
+<script>
+  const links = document.querySelectorAll('nav .nav-link');
+  const pages = document.querySelectorAll('main .page');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      // Retirer la classe active de tous les liens
+      links.forEach(l => l.classList.remove('active'));
+      // Ajouter active au lien cliqué
+      link.classList.add('active');
+
+      // Cacher toutes les pages
+      pages.forEach(page => page.classList.remove('
