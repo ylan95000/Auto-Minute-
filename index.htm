@@ -104,7 +104,7 @@
     padding-left: 12px;
   }
 
-  /* Accueil */
+  /* Accueil amélioré */
   #accueil p {
     font-size: 1.25em;
     color: #444;
@@ -318,28 +318,27 @@
 
 <div class="banner">
   <h2>Votre garage de confiance à Paimpol</h2>
-  <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Contactez-nous</button>
 </div>
 
 <main class="container">
   <section id="accueil" class="page active">
     <h3>Bienvenue chez Auto Minute</h3>
-    <p>Nous assurons l'entretien et la réparation rapide de votre véhicule avec professionnalisme.</p>
+    <p>Votre garage de proximité, expert en réparation et entretien automobile à Paimpol. Nous mettons notre savoir-faire et notre rapidité à votre service pour vous garantir satisfaction et sécurité.</p>
     <div class="features">
       <div class="feature">
-        <div class="feature-icon">🔧</div>
-        <h4>Réparations rapides</h4>
-        <p>Interventions efficaces pour que vous puissiez reprendre la route sans délai.</p>
-      </div>
-      <div class="feature">
         <div class="feature-icon">🛠️</div>
-        <h4>Entretien complet</h4>
-        <p>Un suivi complet de votre voiture pour garantir sa longévité.</p>
+        <h4>Réparations rapides</h4>
+        <p>Interventions efficaces sur toutes marques et modèles.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">🚗</div>
-        <h4>Service client</h4>
-        <p>Une équipe à votre écoute pour répondre à toutes vos questions.</p>
+        <div class="feature-icon">⚙️</div>
+        <h4>Entretien complet</h4>
+        <p>Contrôles et maintenances pour prolonger la vie de votre véhicule.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h4>Conseils personnalisés</h4>
+        <p>Notre équipe vous accompagne dans vos choix et réparations.</p>
       </div>
     </div>
   </section>
@@ -347,12 +346,14 @@
   <section id="services" class="page">
     <h3>Nos Services</h3>
     <ul class="services-list">
-      <li>Vidange & filtres</li>
+      <li>Révision complète</li>
       <li>Diagnostic électronique</li>
-      <li>Freins & suspension</li>
-      <li>Révision générale</li>
+      <li>Freinage et suspension</li>
+      <li>Réparation moteur</li>
+      <li>Vidange et filtres</li>
       <li>Climatisation</li>
-      <li>Contrôle technique</li>
+      <li>Préparation contrôle technique</li>
+      <li>Service dépannage</li>
     </ul>
   </section>
 
@@ -363,27 +364,33 @@
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Dupont" />
         <h4>Jean Dupont</h4>
         <span>Mécanicien principal</span>
-        <p>Expert en diagnostics rapides et réparations précises.</p>
+        <p>Jean possède 15 ans d'expérience en mécanique automobile et garantit un travail soigné.</p>
       </div>
       <div class="team-member">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Leroy" />
-        <h4>Marie Leroy</h4>
-        <span>Assistante service client</span>
-        <p>Votre interlocutrice pour un accueil personnalisé.</p>
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Durand" />
+        <h4>Marie Durand</h4>
+        <span>Responsable accueil</span>
+        <p>Marie vous accueille avec sourire et organise votre prise en charge rapidement.</p>
+      </div>
+      <div class="team-member">
+        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Paul Martin" />
+        <h4>Paul Martin</h4>
+        <span>Technicien diagnostic</span>
+        <p>Paul est expert en diagnostic électronique et vous conseille sur les meilleures réparations.</p>
       </div>
     </div>
   </section>
 
   <section id="contact" class="page">
     <h3>Contactez-nous</h3>
-    <form onsubmit="alert('Merci pour votre message. Nous vous répondrons rapidement.'); return false;">
-      <label for="nom">Nom :</label>
+    <form>
+      <label for="nom">Nom</label>
       <input type="text" id="nom" name="nom" required />
 
-      <label for="email">Email :</label>
+      <label for="email">Email</label>
       <input type="email" id="email" name="email" required />
 
-      <label for="message">Message :</label>
+      <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
 
       <button type="submit">Envoyer</button>
@@ -392,7 +399,7 @@
 </main>
 
 <footer>
-  &copy; 2025 Auto Minute - Garage à Paimpol | <a href="mailto:auto.minute.paimpol@orange.fr">auto.minute.paimpol@orange.fr</a> | 02 96 55 17 84
+  <p>© 2025 Auto Minute - Garage à Paimpol</p>
 </footer>
 
 <script>
@@ -405,8 +412,20 @@
 
       // Retirer la classe active de tous les liens
       links.forEach(l => l.classList.remove('active'));
-      // Ajouter active au lien cliqué
+      // Ajouter la classe active au lien cliqué
       link.classList.add('active');
 
       // Cacher toutes les pages
-      pages.forEach(page => page.classList.remove('
+      pages.forEach(page => page.classList.remove('active'));
+      // Afficher la page ciblée
+      const targetId = link.getAttribute('data-target');
+      const targetPage = document.getElementById(targetId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
