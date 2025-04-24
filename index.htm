@@ -1,103 +1,268 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mon Site Pro</title>
-  <style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Auto Minute - Garage à Paimpol</title>
+<style>
+    /* Reset & base */
+    * {
+        box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background-color: #f4f4f9;
-      color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: #fafafa;
+        color: #222;
+        line-height: 1.6;
     }
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    /* Header */
     header {
-      background-color: #004080;
-      color: white;
-      padding: 15px 20px;
-      text-align: center;
+        background-color: #003366;
+        color: white;
+        padding: 15px 0;
     }
-    nav {
-      background-color: #003366;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      padding: 10px 15px;
-      transition: background-color 0.3s;
+    header h1 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.8em;
+        cursor: default;
     }
-    nav button:hover, nav button.active {
-      background-color: #0059b3;
-      border-radius: 5px;
+    nav a {
+        color: white;
+        margin-left: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1em;
+        padding-bottom: 5px;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.3s ease;
+        cursor: pointer;
     }
-    section {
-      display: none;
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
+    nav a:hover,
+    nav a.active {
+        border-bottom: 2px solid #ff6600;
     }
-    section.active {
-      display: block;
+    /* Banner */
+    .banner {
+        background: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 1px 1px 5px #000;
+        text-align: center;
+        margin-bottom: 40px;
     }
-  </style>
+    .banner h2 {
+        font-size: 2.8em;
+        margin-bottom: 20px;
+    }
+    .banner button {
+        background-color: #ff6600;
+        border: none;
+        padding: 14px 30px;
+        font-size: 1.2em;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+    .banner button:hover {
+        background-color: #e65c00;
+    }
+    /* Main content */
+    main .page {
+        display: none;
+    }
+    main .page.active {
+        display: block;
+    }
+    main h3 {
+        font-size: 2em;
+        color: #003366;
+        margin-bottom: 15px;
+    }
+    ul.services-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    ul.services-list li {
+        background: white;
+        margin-bottom: 12px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+    /* Form */
+    form label {
+        font-weight: 600;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+    form button {
+        background-color: #003366;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1em;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+    form button:hover {
+        background-color: #002244;
+    }
+    /* Footer */
+    footer {
+        background-color: #222;
+        color: #bbb;
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 0.9em;
+        margin-top: 40px;
+    }
+    footer a {
+        color: #bbb;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+        header .container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+        .banner h2 {
+            font-size: 1.8em;
+            padding: 0 10px;
+        }
+    }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Bienvenue sur Mon Site Professionnel</h1>
-  </header>
+<header>
+    <div class="container">
+        <h1>Auto Minute</h1>
+        <nav>
+            <a class="nav-link active" data-target="accueil">Accueil</a>
+            <a class="nav-link" data-target="services">Services</a>
+            <a class="nav-link" data-target="contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
-  <nav>
-    <button onclick="showPage('accueil')" class="active">Accueil</button>
-    <button onclick="showPage('services')">Services</button>
-    <button onclick="showPage('contact')">Contact</button>
-  </nav>
+<div class="banner">
+    <div class="container">
+        <h2>Votre expert automobile à Paimpol</h2>
+        <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Prendre rendez-vous</button>
+    </div>
+</div>
 
-  <section id="accueil" class="active">
-    <h2>Accueil</h2>
-    <p>Bienvenue sur notre site. Découvrez nos services et contactez-nous pour plus d’informations.</p>
-  </section>
+<main class="container">
 
-  <section id="services">
-    <h2>Services</h2>
-    <ul>
-      <li>Conseil en comptabilité</li>
-      <li>Gestion financière</li>
-      <li>Audit et analyse</li>
-    </ul>
-  </section>
+    <section id="accueil" class="page active">
+        <h3>Bienvenue chez Auto Minute</h3>
+        <p>Garage spécialisé en réparations rapides, entretien, diagnostic électronique et vente de pièces détachées à Paimpol.</p>
+        <p>Nous mettons notre expertise à votre service pour que votre véhicule soit toujours en parfait état.</p>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Pour toute demande, envoyez un email à <a href="mailto:contact@monsite.com">contact@monsite.com</a> ou appelez au 01 23 45 67 89.</p>
-  </section>
+    <section id="services" class="page">
+        <h3>Nos Services</h3>
+        <ul class="services-list">
+            <li>Réparations rapides</li>
+            <li>Entretien toutes marques</li>
+            <li>Diagnostic électronique</li>
+            <li>Vente de pièces détachées</li>
+        </ul>
+    </section>
 
-  <script>
-    function showPage(pageId) {
-      // Cacher toutes les sections
-      document.querySelectorAll('section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-      // Afficher la section choisie
-      document.getElementById(pageId).classList.add('active');
+    <section id="contact" class="page">
+        <h3>Contactez-nous</h3>
+        <p><strong>Adresse :</strong> 4 Chemin du Grand Pré, Paimpol</p>
+        <p><strong>Téléphone :</strong> <a href="tel:+33296551784">02 96 55 17 84</a></p>
+        <p><strong>Email :</strong> <a href="mailto:auto.minute.paimpol@orange.fr">auto.minute.paimpol@orange.fr</a></p>
 
-      // Gérer le style des boutons
-      document.querySelectorAll('nav button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.currentTarget.classList.add('active');
-    }
-  </script>
+        <h4>Envoyez-nous un message</h4>
+        <form onsubmit="alert('Message envoyé avec succès !'); return false;">
+            <label for="name">Nom :</label><br/>
+            <input type="text" id="name" name="name" required /><br/><br/>
+
+            <label for="email">Email :</label><br/>
+            <input type="email" id="email" name="email" required /><br/><br/>
+
+            <label for="message">Message :</label><br/>
+            <textarea id="message" name="message" rows="5" required></textarea><br/><br/>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Auto Minute. Tous droits réservés.</p>
+        <p>
+            <a href="#">Mentions légales</a> |
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Navigation entre pages internes
+    const links = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            // Retirer active de tous les liens et pages
+            links.forEach(l => l.classList.remove('active'));
+            pages.forEach(p => p.classList.remove('active'));
+
+            // Ajouter active au lien cliqué et à la page correspondante
+            link.classList.add('active');
+            const target = link.getAttribute('data-target');
+            document.getElementById(target).classList.add('active');
+
+            // Faire défiler en haut de la page principale
+            window.scrollTo(0, 0);
+        });
+    });
+</script>
 
 </body>
 </html>
