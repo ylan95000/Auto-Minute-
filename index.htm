@@ -1,156 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Auto Minute - Garage à Paimpol</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0; padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .banner {
-            background: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 1px 1px 5px #000;
-            flex-direction: column;
-            text-align: center;
-        }
-        .banner h2 {
-            font-size: 2.5em;
-            margin: 0 0 15px 0;
-        }
-        .banner button {
-            background-color: #ff6600;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1em;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .banner button:hover {
-            background-color: #e65c00;
-        }
-        main {
-            padding: 30px;
-            max-width: 900px;
-            margin: auto;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        section h3 {
-            border-bottom: 2px solid #004080;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #004080;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            background-color: white;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px #ccc;
-        }
-        footer {
-            background-color: #222;
-            color: #bbb;
-            text-align: center;
-            padding: 20px 10px;
-            font-size: 0.9em;
-        }
-        footer a {
-            color: #bbb;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon Site Pro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #003366;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px 15px;
+      transition: background-color 0.3s;
+    }
+    nav button:hover, nav button.active {
+      background-color: #0059b3;
+      border-radius: 5px;
+    }
+    section {
+      display: none;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Auto Minute</h1>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#services">Services</a>
-        <a href="#horaires">Horaires</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+  <header>
+    <h1>Bienvenue sur Mon Site Professionnel</h1>
+  </header>
 
-<div class="banner">
-    <h2>Votre expert automobile à Paimpol</h2>
-    <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Prendre rendez-vous</button>
-</div>
+  <nav>
+    <button onclick="showPage('accueil')" class="active">Accueil</button>
+    <button onclick="showPage('services')">Services</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </nav>
 
-<main>
-    <section id="services">
-        <h3>Nos Services</h3>
-        <ul>
-            <li>Réparations rapides</li>
-            <li>Entretien toutes marques</li>
-            <li>Diagnostic électronique</li>
-            <li>Vente de pièces détachées</li>
-        </ul>
-    </section>
+  <section id="accueil" class="active">
+    <h2>Accueil</h2>
+    <p>Bienvenue sur notre site. Découvrez nos services et contactez-nous pour plus d’informations.</p>
+  </section>
 
-    <section id="horaires">
-        <h3>Horaires d’ouverture</h3>
-        <p>Ouvert du lundi au vendredi</p>
-        <p><strong>8h - 12h | 14h - 18h</strong></p>
-    </section>
+  <section id="services">
+    <h2>Services</h2>
+    <ul>
+      <li>Conseil en comptabilité</li>
+      <li>Gestion financière</li>
+      <li>Audit et analyse</li>
+    </ul>
+  </section>
 
-    <section id="contact">
-        <h3>Contactez-nous</h3>
-        <p>Adresse : 4 Chemin du Grand Pré, Paimpol</p>
-        <p>Téléphone : <a href="tel:+33296551784">02 96 55 17 84</a></p>
-        <p>Email : <a href="mailto:auto.minute.paimpol@orange.fr">auto.minute.paimpol@orange.fr</a></p>
-    </section>
-</main>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Pour toute demande, envoyez un email à <a href="mailto:contact@monsite.com">contact@monsite.com</a> ou appelez au 01 23 45 67 89.</p>
+  </section>
 
-<footer>
-    <p>&copy; 2025 Auto Minute. Tous droits réservés.</p>
-    <p>
-        <a href="#">Mentions légales</a> |
-        <a href="#">Facebook</a> |
-        <a href="#">Twitter</a>
-    </p>
-</footer>
+  <script>
+    function showPage(pageId) {
+      // Cacher toutes les sections
+      document.querySelectorAll('section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      // Afficher la section choisie
+      document.getElementById(pageId).classList.add('active');
+
+      // Gérer le style des boutons
+      document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
