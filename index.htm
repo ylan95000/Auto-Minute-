@@ -5,264 +5,307 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Auto Minute - Garage à Paimpol</title>
 <style>
-    /* Reset & base */
-    * {
-        box-sizing: border-box;
-    }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        background: #fafafa;
-        color: #222;
-        line-height: 1.6;
-    }
-    .container {
-        width: 90%;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    /* Header */
-    header {
-        background-color: #003366;
-        color: white;
-        padding: 15px 0;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #f9fafb;
+    color: #222;
+    line-height: 1.6;
+  }
+  .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.8em;
+    color: #111;
+    cursor: default;
+  }
+  nav a {
+    color: #555;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  nav a:hover,
+  nav a.active {
+    border-bottom: 2px solid #ff5722;
+    color: #ff5722;
+  }
+  .banner {
+    background: linear-gradient(rgba(255, 87, 34, 0.7), rgba(255, 87, 34, 0.7)),
+                url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  .banner h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .banner button {
+    background-color: #ff5722;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(255,87,34,0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .banner button:hover {
+    background-color: #e64a19;
+    box-shadow: 0 6px 18px rgba(230,74,25,0.6);
+  }
+  main .page {
+    display: none;
+  }
+  main .page.active {
+    display: block;
+  }
+  main h3 {
+    font-size: 2.4em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-left: 6px solid #ff5722;
+    padding-left: 12px;
+  }
+  /* Accueil amélioré */
+  #accueil .welcome-text {
+    font-size: 1.25em;
+    margin-bottom: 30px;
+    max-width: 700px;
+    color: #444;
+  }
+  #accueil .features {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #accueil .feature {
+    background: white;
+    flex: 1 1 250px;
+    max-width: 280px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+  }
+  #accueil .feature:hover {
+    box-shadow: 0 8px 28px rgba(255,87,34,0.25);
+  }
+  #accueil .feature svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+    fill: #ff5722;
+  }
+  #accueil .feature h4 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #222;
+    font-size: 1.3em;
+  }
+  #accueil .feature p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+  /* Services list & details */
+  ul.services-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  ul.services-list li {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    font-weight: 600;
+    font-size: 1.15em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #444;
+  }
+  ul.services-list li:hover {
+    box-shadow: 0 8px 25px rgba(255,87,34,0.25);
+    transform: translateY(-6px);
+    color: #ff5722;
+  }
+  .service-detail {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    display: none;
+    font-size: 1.05em;
+    line-height: 1.5;
+    color: #555;
+  }
+  /* Form styles */
+  form label {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1em;
+  }
+  form input, form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+  form input:focus, form textarea:focus {
+    border-color: #ff5722;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255,87,34,0.3);
+  }
+  form button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 700;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 15px rgba(255,87,34,0.4);
+  }
+  form button:hover {
+    background-color: #e64a19;
+    box-shadow: 0 8px 22px rgba(230,74,25,0.6);
+  }
+  footer {
+    background-color: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 0.9em;
+    margin-top: 60px;
+  }
+  footer a {
+    color: #bbb;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  footer a:hover {
+    color: #ff5722;
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
     header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
     }
-    header h1 {
-        margin: 0;
-        font-weight: 700;
-        font-size: 1.8em;
-        cursor: default;
+    nav {
+      margin-top: 10px;
     }
     nav a {
-        color: white;
-        margin-left: 25px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1em;
-        padding-bottom: 5px;
-        border-bottom: 2px solid transparent;
-        transition: border-color 0.3s ease;
-        cursor: pointer;
-    }
-    nav a:hover,
-    nav a.active {
-        border-bottom: 2px solid #ff6600;
-    }
-    /* Banner */
-    .banner {
-        background: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-        height: 350px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-shadow: 1px 1px 5px #000;
-        text-align: center;
-        margin-bottom: 40px;
+      margin-left: 0;
+      margin-right: 15px;
     }
     .banner h2 {
-        font-size: 2.8em;
-        margin-bottom: 20px;
-    }
-    .banner button {
-        background-color: #ff6600;
-        border: none;
-        padding: 14px 30px;
-        font-size: 1.2em;
-        color: white;
-        cursor: pointer;
-        border-radius: 6px;
-        transition: background-color 0.3s ease;
-    }
-    .banner button:hover {
-        background-color: #e65c00;
-    }
-    /* Main content */
-    main .page {
-        display: none;
-    }
-    main .page.active {
-        display: block;
-    }
-    main h3 {
-        font-size: 2em;
-        color: #003366;
-        margin-bottom: 15px;
+      font-size: 1.8em;
+      padding: 0 10px;
     }
     ul.services-list {
-        list-style: none;
-        padding-left: 0;
+      grid-template-columns: 1fr;
     }
-    ul.services-list li {
-        background: white;
-        margin-bottom: 12px;
-        padding: 15px 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-        font-weight: 600;
-        font-size: 1.1em;
+    #accueil .features {
+      flex-direction: column;
+      gap: 20px;
     }
-    /* Form */
-    form label {
-        font-weight: 600;
-    }
-    form input, form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 1em;
-    }
-    form button {
-        background-color: #003366;
-        color: white;
-        border: none;
-        padding: 12px 25px;
-        font-size: 1.1em;
-        cursor: pointer;
-        border-radius: 6px;
-        transition: background-color 0.3s ease;
-    }
-    form button:hover {
-        background-color: #002244;
-    }
-    /* Footer */
-    footer {
-        background-color: #222;
-        color: #bbb;
-        text-align: center;
-        padding: 20px 10px;
-        font-size: 0.9em;
-        margin-top: 40px;
-    }
-    footer a {
-        color: #bbb;
-        margin: 0 10px;
-        text-decoration: none;
-    }
-    footer a:hover {
-        text-decoration: underline;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-        header .container {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        nav {
-            margin-top: 10px;
-        }
-        nav a {
-            margin-left: 0;
-            margin-right: 15px;
-        }
-        .banner h2 {
-            font-size: 1.8em;
-            padding: 0 10px;
-        }
-    }
+  }
 </style>
 </head>
 <body>
 
 <header>
-    <div class="container">
-        <h1>Auto Minute</h1>
-        <nav>
-            <a class="nav-link active" data-target="accueil">Accueil</a>
-            <a class="nav-link" data-target="services">Services</a>
-            <a class="nav-link" data-target="contact">Contact</a>
-        </nav>
-    </div>
+  <div class="container">
+    <h1>Auto Minute</h1>
+    <nav>
+      <a class="nav-link active" data-target="accueil">Accueil</a>
+      <a class="nav-link" data-target="services">Services</a>
+      <a class="nav-link" data-target="contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<div class="banner">
-    <div class="container">
-        <h2>Votre expert automobile à Paimpol</h2>
-        <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Prendre rendez-vous</button>
-    </div>
+<div class="banner" role="img" aria-label="Garage automobile, image de voiture">
+  <div class="container">
+    <h2>Votre expert automobile à Paimpol</h2>
+    <button onclick="alert('Contactez-nous au 02 96 55 17 84')">Prendre rendez-vous</button>
+  </div>
 </div>
 
-<main class="container">
+<main class="container" role="main">
 
-    <section id="accueil" class="page active">
-        <h3>Bienvenue chez Auto Minute</h3>
-        <p>Garage spécialisé en réparations rapides, entretien, diagnostic électronique et vente de pièces détachées à Paimpol.</p>
-        <p>Nous mettons notre expertise à votre service pour que votre véhicule soit toujours en parfait état.</p>
-    </section>
-
-    <section id="services" class="page">
-        <h3>Nos Services</h3>
-        <ul class="services-list">
-            <li>Réparations rapides</li>
-            <li>Entretien toutes marques</li>
-            <li>Diagnostic électronique</li>
-            <li>Vente de pièces détachées</li>
-        </ul>
-    </section>
-
-    <section id="contact" class="page">
-        <h3>Contactez-nous</h3>
-        <p><strong>Adresse :</strong> 4 Chemin du Grand Pré, Paimpol</p>
-        <p><strong>Téléphone :</strong> <a href="tel:+33296551784">02 96 55 17 84</a></p>
-        <p><strong>Email :</strong> <a href="mailto:auto.minute.paimpol@orange.fr">auto.minute.paimpol@orange.fr</a></p>
-
-        <h4>Envoyez-nous un message</h4>
-        <form onsubmit="alert('Message envoyé avec succès !'); return false;">
-            <label for="name">Nom :</label><br/>
-            <input type="text" id="name" name="name" required /><br/><br/>
-
-            <label for="email">Email :</label><br/>
-            <input type="email" id="email" name="email" required /><br/><br/>
-
-            <label for="message">Message :</label><br/>
-            <textarea id="message" name="message" rows="5" required></textarea><br/><br/>
-
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-
-</main>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Auto Minute. Tous droits réservés.</p>
-        <p>
-            <a href="#">Mentions légales</a> |
-            <a href="#">Facebook</a> |
-            <a href="#">Twitter</a>
-        </p>
-    </div>
-</footer>
-
-<script>
-    // Navigation entre pages internes
-    const links = document.querySelectorAll('.nav-link');
-    const pages = document.querySelectorAll('.page');
-
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            // Retirer active de tous les liens et pages
-            links.forEach(l => l.classList.remove('active'));
-            pages.forEach(p => p.classList.remove('active'));
-
-            // Ajouter active au lien cliqué et à la page correspondante
-            link.classList.add('active');
-            const target = link.getAttribute('data-target');
-            document.getElementById(target).classList.add('active');
-
-            // Faire défiler en haut de la page principale
-            window.scrollTo(0, 0);
-        });
-    });
-</script>
-
-</body>
-</html>
+  <section id="accueil" class="page active" tabindex="0">
+    <h3>Bienvenue chez Auto Minute</h3>
+    <p class="welcome-text">
+      Au cœur de Paimpol, Auto Minute vous offre un service automobile rapide, fiable et de qualité. 
+      Que vous ayez besoin d’une réparation urgente ou d’un entretien complet, notre équipe est là pour vous accompagner.
+    </p>
+    <div class="features" role="list">
+      <article class="feature" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 4a28 28
